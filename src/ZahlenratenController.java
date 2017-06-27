@@ -2,14 +2,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class ZahlenratenController implements ActionListener {
+public class ZahlenratenController implements ActionListener, KeyListener {
 	ZahlenratenModel model;
 	ZahlenratenView view;
+	JButton button, button1;
+	JLabel label3, label4;
+	JTextField zahl;
 
 	int versuch = 0;
 	public int eingabe;
@@ -17,19 +22,20 @@ public class ZahlenratenController implements ActionListener {
 	public ZahlenratenController() {
 		view = new ZahlenratenView();
 		model = new ZahlenratenModel();
-		JButton button = view.button;
-		JButton button1 = view.button1;
+		button = view.button;
+		button1 = view.button1;
+		label3 = view.label3;
+		label4 = view.label4;
+		zahl = view.zahl;
+
 		button.addActionListener(this);
 		button1.addActionListener(this);
+		JTextField zahl = view.zahl;
+		zahl.addKeyListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JButton button = view.button;
-		JButton button1 = view.button1;
-		JLabel label3 = view.label3;
-		JLabel label4 = view.label4;
-		JTextField zahl = view.zahl;
 
 		if (e.getSource() == button) {
 
@@ -42,7 +48,12 @@ public class ZahlenratenController implements ActionListener {
 			if (eingabe < 1 || eingabe > 100) {
 				label4.setText("Geben Sie eine Zahl zwischen 1 und 100 ein!");
 			}
-
+			
+			if (zahl.getText().isEmpty()) {
+				label4.setText("Geben Sie eine Zahl zwischen 1 und 100 ein!");
+				eingabe = 0;
+			}
+			
 			if (eingabe >= 1 && eingabe <= 100) {
 
 				this.versuch += 1;
@@ -78,5 +89,22 @@ public class ZahlenratenController implements ActionListener {
 			button.setEnabled(true);
 			zahl.setEnabled(true);
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent ke) {
+		if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+			button.doClick();
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent ke) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent ke) {
+
 	}
 }
