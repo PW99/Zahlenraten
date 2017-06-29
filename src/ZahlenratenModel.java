@@ -6,10 +6,9 @@ public class ZahlenratenModel {
 	public int richtung;
 	public int zahl;
 
-	public ZahlenratenModel() {
-
-		int zahl = (int) ((Math.random() * 100) + 1);
-		this.zahl = zahl;
+	public ZahlenratenModel(int input) {
+		int bereich = input;
+		zahl = (int) ((Math.random() * bereich) + 1);
 	}
 
 	public void Check(int input) {
