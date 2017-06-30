@@ -1,5 +1,4 @@
 public class ZahlenratenModel {
-
 	ZahlenratenController controller;
 
 	public int richtung;
