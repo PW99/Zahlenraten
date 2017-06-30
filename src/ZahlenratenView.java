@@ -40,7 +40,7 @@ public class ZahlenratenView {
 		frame.add(label3);
 
 		label4 = new JLabel("");
-		label4.setBounds(5, 130, 350, 20);
+		label4.setBounds(5, 130, 370, 20);
 		label4.setVisible(true);
 		label4.setFont(new Font("Helvetica", Font.BOLD, 15));
 		label4.setForeground(Color.BLACK);

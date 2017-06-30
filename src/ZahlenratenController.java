@@ -35,7 +35,6 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 
 		button.addActionListener(this);
 		button1.addActionListener(this);
-		JTextField zahl = view.zahl;
 		zahl.addKeyListener(this);
 		wunsch.getDocument().addDocumentListener(this);
 	}
@@ -80,8 +79,8 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 					label4.setFont(new Font("Helvetica", Font.BOLD, 20));
 					label4.setForeground(Color.BLUE);
 					button.setEnabled(false);
-					zahl.setEnabled(false);
 					wunsch.setEnabled(false);
+					zahl.setEnabled(false);
 				}
 			}
 		}
@@ -95,10 +94,11 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 			label4.setForeground(Color.BLACK);
 			label5.setText("Eine Zahl zwischen 1 und " + bereich + ":");
 			wunsch.setText("100");
+			zahl.setText("");
 			versuch = 0;
 			button.setEnabled(true);
-			zahl.setEnabled(true);
 			wunsch.setEnabled(true);
+			zahl.setEnabled(true);
 		}
 	}
 
@@ -125,12 +125,12 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 			bereich = Integer.parseInt(wunsch.getText());
 			label5.setText("Eine Zahl zwischen 1 und " + bereich + ":");
 			label4.setText("");
+			versuch = 0;
+			label3.setText("Anzahl Versuche: " + versuch);
 		} catch (Exception ex) {
-			label4.setText("Geben Sie eine Zahl beim Zahlenbereich ein.");
+			label4.setText("Geben Sie eine ganze Zahl beim Zahlenbereich ein.");
 		}
-
 		model = new ZahlenratenModel(bereich);
-
 	}
 
 	@Override
@@ -139,12 +139,12 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 			bereich = Integer.parseInt(wunsch.getText());
 			label5.setText("Eine Zahl zwischen 1 und " + bereich + ":");
 			label4.setText("");
+			versuch = 0;
+			label3.setText("Anzahl Versuche: " + versuch);
 		} catch (Exception ex) {
-			label4.setText("Geben Sie eine Zahl beim Zahlenbereich ein.");
+			label4.setText("Geben Sie eine ganze Zahl beim Zahlenbereich ein.");
 		}
-
 		model = new ZahlenratenModel(bereich);
-
 	}
 
 	@Override
@@ -153,10 +153,11 @@ public class ZahlenratenController implements ActionListener, KeyListener, Docum
 			bereich = Integer.parseInt(wunsch.getText());
 			label5.setText("Eine Zahl zwischen 1 und " + bereich + ":");
 			label4.setText("");
+			versuch = 0;
+			label3.setText("Anzahl Versuche: " + versuch);
 		} catch (Exception ex) {
-			label4.setText("Geben Sie eine Zahl beim Zahlenbereich ein.");
+			label4.setText("Geben Sie eine ganze Zahl beim Zahlenbereich ein.");
 		}
-
 		model = new ZahlenratenModel(bereich);
 	}
 }
