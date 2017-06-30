@@ -1,7 +1,6 @@
 public class ZahlenratenModel {
 
 	ZahlenratenController controller;
-	ZahlenratenView view;
 
 	public int richtung;
 	public int zahl;
